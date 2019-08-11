@@ -1,0 +1,4 @@
+contain
+conflict
+cure
+belong_to
