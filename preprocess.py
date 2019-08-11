@@ -2,8 +2,9 @@ import pandas as pd
 import json
 from tqdm import tqdm
 from tqdm._tqdm import trange
+from macro import ROOT_PATH
 
-ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
+# ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
 
 df = pd.read_csv(ROOT_PATH+"/data/all_r_list.csv")
 # print(df)

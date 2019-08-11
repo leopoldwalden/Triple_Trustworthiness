@@ -7,8 +7,10 @@ from sklearn.metrics import accuracy_score, f1_score
 from gen_features import *
 # from sklearn.externals import joblib
 import joblib
+from macro import ROOT_PATH
+
 # from prepare import *
-ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
+# ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
 
 
 # 载入数据集

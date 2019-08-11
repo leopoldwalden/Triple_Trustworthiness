@@ -2,8 +2,10 @@ from gensim.models import Word2Vec
 import pandas as pd
 import numpy as np
 import copy
+from macro import ROOT_PATH
 
-ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
+# ROOT_PATH = "/home/grayfu/Projects/Triple_Trustworthiness"
+# ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
 model = Word2Vec.load(ROOT_PATH+"/model/embeddings.model")
 
 def cal_rel_norm(model, relation):

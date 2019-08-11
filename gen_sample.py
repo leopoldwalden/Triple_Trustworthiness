@@ -1,8 +1,9 @@
 import numpy as np
 import random
 from random import shuffle
+from macro import ROOT_PATH
 
-ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
+# ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
 
 def gen_noise(triples:list):
     noise_triples = []

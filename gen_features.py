@@ -1,8 +1,10 @@
 from gensim.models import Word2Vec
 import numpy as np
 from cal_relation_vec import *
+from macro import ROOT_PATH
+
 # load model
-ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
+# ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
 model = Word2Vec.load(ROOT_PATH + "/model/embeddings.model")
 
 # load samples
