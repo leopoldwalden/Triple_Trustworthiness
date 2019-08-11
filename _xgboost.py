@@ -23,10 +23,13 @@ def main():
     # # path = "./data/dev_data.csv"
     # df = pd.read_csv(path)
     features = sample2feature()
+    # print(features)
     # x_list, y_list, i2l = preprocess(df)
-    X = features[:,0]
+    X = features[:,1:]
+    # print(X)
     print("X.shape:",X.shape)
-    Y = features[:,0:]
+    Y = features[:,0]
+    # print(Y)
     print("Y.shape:",Y.shape)
 
     # print(Y)
@@ -40,7 +43,14 @@ def main():
     # x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=test_size, random_state=seed)
     x_train, x_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_state=seed )
 
+    # X = np.transpose(X)
+    # Y = np.transpose(Y)
+    # print("X.shape:",X.shape)
+    # print("Y.shape:",Y.shape)
+
     # 拟合XGBoost模型
+    print("x_train.shape:",x_train.shape)
+    print("y_train.shape:",y_train.shape)
     model = XGBClassifier(gamma= 0.001953125, max_depth= 4)
     model.fit(x_train, y_train)
 

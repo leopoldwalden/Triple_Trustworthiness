@@ -1,6 +1,8 @@
 from gensim.models import Word2Vec
 import numpy as np
 from cal_relation_vec import *
+from tqdm._tqdm import trange
+from tqdm import tqdm
 from macro import ROOT_PATH
 
 
@@ -35,11 +37,15 @@ def sample2feature():
 
     # conctate head tail and relation
     features = np.array([np.zeros(1+64*3)])
+    # print(features)
     # print(features.shape)
-    for sample in samples:
+    # samples = samples[:100]
+    for sample in tqdm(samples):
+        # print(sample)
         feature = np.zeros(1)
 
-        label = np.array(sample[0])
+        label = np.int(sample[0])
+        # print(label.__class__)
         head_emb = model.wv[sample[1]]
         # print(head_emb)
         tail_emb = model.wv[sample[2]]
@@ -53,8 +59,9 @@ def sample2feature():
         feature = feature[1:]
         # print(feature.shape)
         features = np.append(features,np.array([feature]),axis=0)
+        # print(features[1][1].__class__)
         # print(features.shape)
-    return features
+    return features[1:]
 
 
 # sample2feature(samples)
