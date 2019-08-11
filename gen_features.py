@@ -3,35 +3,36 @@ import numpy as np
 from cal_relation_vec import *
 from macro import ROOT_PATH
 
-# load model
-# ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
-model = Word2Vec.load(ROOT_PATH + "/model/embeddings.model")
 
-# load samples
-samples = []
-f = open(ROOT_PATH+"/data/samples.csv","r")
-for line in f.readlines():
-    line = line.strip("\n").split(",")
-    samples.append(line)
+def sample2feature():
+    # load model
+    # ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
+    model = Word2Vec.load(ROOT_PATH + "/model/embeddings.model")
 
-# load relation_vec
-relation_vec = cal_relation_embeding()
-# relation_vec = np.load("./data/relation_vec.npy")
-# print(relation_vec.shape)
-relation_dict = {}
-f = open(ROOT_PATH+"/data/rel2idx.csv","r")
-for line in f.readlines():
-    line = line.strip("\n").split(",")
-    relation_dict[line[0]] = line[1]
-f = open(ROOT_PATH+"/data/relation_save_order.txt","r")
-relation_list = []
-for line in f:
-    # print(line)
-    line = line.strip("\n")
-    # print(line)
-    relation_list.append(relation_dict[line])
+    # load samples
+    samples = []
+    f = open(ROOT_PATH + "/data/samples.csv", "r")
+    for line in f.readlines():
+        line = line.strip("\n").split(",")
+        samples.append(line)
 
-def sample2feature(samples:list):
+    # load relation_vec
+    relation_vec = cal_relation_embeding()
+    # relation_vec = np.load("./data/relation_vec.npy")
+    # print(relation_vec.shape)
+    relation_dict = {}
+    f = open(ROOT_PATH + "/data/rel2idx.csv", "r")
+    for line in f.readlines():
+        line = line.strip("\n").split(",")
+        relation_dict[line[0]] = line[1]
+    f = open(ROOT_PATH + "/data/relation_save_order.txt", "r")
+    relation_list = []
+    for line in f:
+        # print(line)
+        line = line.strip("\n")
+        # print(line)
+        relation_list.append(relation_dict[line])
+
     # conctate head tail and relation
     features = np.array([np.zeros(1+64*3)])
     # print(features.shape)
