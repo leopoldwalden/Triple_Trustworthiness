@@ -8,6 +8,8 @@ from gen_features import *
 # from sklearn.externals import joblib
 import joblib
 # from prepare import *
+ROOT_PATH = "/home/jilei/Desktop/PycharmProjects/Triple_Trustworthiness"
+
 
 # 载入数据集
 # dataset = loadtxt('pima-indians-diabetes.csv', delimiter=",")
@@ -53,7 +55,7 @@ def main():
     """
 
     # save model
-    joblib.dump(model, "../model/xgboost.model")
+    joblib.dump(model, ROOT_PATH + "/model/xgboost.model")
     # model = joblib.load("./model/xgboost.model")
 
     # # 对测试集做预测
