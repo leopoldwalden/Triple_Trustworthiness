@@ -57,4 +57,4 @@ def sample2feature():
     return features
 
 
-sample2feature(samples)
+# sample2feature(samples)
